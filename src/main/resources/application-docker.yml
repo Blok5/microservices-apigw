@@ -4,13 +4,12 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka
 
 management:
   tracing:
     sampling:
       probability: 1.0
-
 otel:
   traces:
     exporter: jaeger
@@ -18,19 +17,6 @@ otel:
     jaeger:
       endpoint: http://jaeger:14250/
 
-
-exporters:
-  jaeger:
-    endpoint:  http://jaeger:14250/
-
-#otel:
-#  exporter:
-#    jaeger:
-#      endpoint: http://jaeger:14250/
-#    otlp:
-#      endpoint: http://jaeger:14250/
-
-spring:
   application:
     name: api-gateway
   cloud:
